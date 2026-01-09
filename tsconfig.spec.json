@@ -6,7 +6,9 @@
     "outDir": "./out-tsc/spec",
     "types": [
       "vitest/globals"
-    ]
+    ],
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/**/*.d.ts",

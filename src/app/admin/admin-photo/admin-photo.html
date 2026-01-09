@@ -1,0 +1,21 @@
+<h2>Gerenciar Fotos</h2>
+
+<div class="upload-area">
+  <input type="file" multiple (change)="upload($event)">
+</div>
+
+<div class="photos-grid">
+  <div class="photo-item" *ngFor="let p of photos">
+    <img [src]="p.thumbUrl">
+    <button class="delete-btn" (click)="openDeleteDialog(p)">Excluir</button>
+  </div>
+</div>
+
+<!-- Modal de confirmação -->
+<app-confirm-dialog 
+  *ngIf="showDialog"
+  [message]="'Deseja realmente excluir esta imagem?'"
+  [loading]="dialogLoading"
+  (confirmAction)="confirmDelete()"
+  (cancelAction)="cancelDelete()"
+></app-confirm-dialog>

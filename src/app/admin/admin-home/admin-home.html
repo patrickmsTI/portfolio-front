@@ -1,0 +1,15 @@
+<h3>Fotos Disponíveis</h3>
+<div class="grid">
+  <div class="item" *ngFor="let p of availablePhotos" (dblclick)="selectPhoto(p)">
+    <img [src]="p.thumbUrl">
+  </div>
+</div>
+
+<h3>Fotos Selecionadas para Home</h3>
+<div class="grid selected">
+  <div class="item" *ngFor="let p of selectedPhotos" (dblclick)="removePhoto(p)">
+    <img [src]="p.thumbUrl">
+  </div>
+</div>
+
+<button class="save" (click)="save()">Salvar</button>

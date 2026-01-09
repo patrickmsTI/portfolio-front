@@ -1,0 +1,19 @@
+<div class="gallery-grid">
+  <figure *ngFor="let photo of (photos$ | async)" (click)="open(photo.mediumUrl)">
+    <img [src]="photo.thumbUrl" alt="">
+  </figure>
+</div>
+
+<!-- <section class="video-section">
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/UZPoHt3n2vA?rel=0&showinfo=0&modestbranding=1"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section> -->
+
+<div class="lightbox" *ngIf="selected" (click)="close()">
+  <img [src]="selected" alt="">
+</div>

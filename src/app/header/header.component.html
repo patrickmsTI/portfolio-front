@@ -1,0 +1,28 @@
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-wrapper">
+      <a routerLink="home">
+        <img src="assets/logo.png" class="logo" alt="Logo">
+      </a>
+    </div>
+
+    <nav class="nav desktop">
+      <a routerLink="/photos">Photo</a>
+      <a routerLink="/video">Video</a>
+      <a routerLink="/contact">Contact</a>
+    </nav>
+
+    <div class="social desktop">
+      <a href="https://instagram.com/patrickms.gallery" target="_blank" rel="noopener noreferrer">
+        <img src="assets/instagram.png" class="instagram" alt="Instagram">
+      </a>
+      <a href="https://www.youtube.com/@patrickms.martins" target="_blank" rel="noopener noreferrer">
+        <img src="assets/youtube.png" class="youtube" alt="Youtube">
+      </a>
+    </div>
+
+    <button class="burger" (click)="toggleMenu()">
+      ☰
+    </button>
+  </div>
+</header>

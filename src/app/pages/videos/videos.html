@@ -1,0 +1,11 @@
+<div class="videos-container">
+  <div class="video-grid">
+    <div class="video-item" *ngFor="let v of (videos$ | async)">
+      <iframe
+        [src]="v.embedUrl"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>

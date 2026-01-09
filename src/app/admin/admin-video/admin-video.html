@@ -1,0 +1,34 @@
+<h2>Gerenciar Videos</h2>
+
+<div class="upload-area">
+  <input
+    type="text"
+    placeholder="ID do YouTube"
+    [(ngModel)]="newVideoId"
+    (keyup.enter)="add()"
+  >
+  <button (click)="add()" [disabled]="dialogLoading">Adicionar</button>
+</div>
+
+<div class="videos-grid">
+  <div class="video-item" *ngFor="let v of videos">
+    <div class="preview">
+      <img class="thumb" [src]="thumbnailUrl(v)" alt="">
+      <iframe
+        class="preview-frame"
+        [src]="embedUrl(v)"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <button class="delete-btn" (click)="openDeleteDialog(v)">Excluir</button>
+  </div>
+</div>
+
+<app-confirm-dialog
+  *ngIf="showDialog"
+  [message]="'Deseja realmente excluir este video?'"
+  [loading]="dialogLoading"
+  (confirmAction)="confirmDelete()"
+  (cancelAction)="cancelDelete()"
+></app-confirm-dialog>

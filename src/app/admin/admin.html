@@ -1,0 +1,23 @@
+<div class="modal-background">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+
+    <button class="close-btn" (click)="closeModal()">X</button>
+
+    <h2>Painel Administrativo</h2>
+
+    <!-- NAV -->
+    <div class="admin-tabs">
+      <button [class.active]="tab === 'home'" (click)="setTab('home')">Home</button>
+      <button [class.active]="tab === 'photo'" (click)="setTab('photo')">Photos</button>
+      <button [class.active]="tab === 'video'" (click)="setTab('video')">Videos</button>
+    </div>
+
+    <hr>
+
+    <!-- TABS CONTENT -->
+    <app-admin-home [hidden]="tab !== 'home'"></app-admin-home>
+    <app-admin-photo [hidden]="tab !== 'photo'"></app-admin-photo>
+    <app-admin-video [hidden]="tab !== 'video'"></app-admin-video>
+
+  </div>
+</div>

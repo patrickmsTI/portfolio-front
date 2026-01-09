@@ -1,0 +1,40 @@
+.upload-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.photo-item {
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: .2s;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+
+  .delete-btn {
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 11px;
+  }
+}

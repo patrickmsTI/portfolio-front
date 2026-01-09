@@ -1,0 +1,84 @@
+.upload-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  input {
+    flex: 1;
+    padding: 6px 8px;
+  }
+
+  button {
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.video-item {
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .preview {
+    position: relative;
+    width: 100%;
+    height: 110px;
+  }
+
+  .thumb,
+  .preview-frame {
+    width: 100%;
+    height: 110px;
+    border-radius: 4px;
+  }
+
+  .thumb {
+    object-fit: cover;
+    display: block;
+    transition: opacity .2s;
+  }
+
+  .preview-frame {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .2s;
+    pointer-events: none;
+  }
+
+  .video-id {
+    font-size: 12px;
+    word-break: break-all;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+    background: red;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 11px;
+  }
+}
+
+.video-item:hover {
+  .thumb {
+    opacity: 0;
+  }
+
+  .preview-frame {
+    opacity: 1;
+  }
+}

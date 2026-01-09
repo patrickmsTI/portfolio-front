@@ -1,0 +1,28 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+
+  .item img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: .2s;
+
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+
+.save {
+  padding: 10px 25px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

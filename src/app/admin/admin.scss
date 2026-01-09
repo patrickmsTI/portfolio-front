@@ -1,0 +1,48 @@
+.modal-background {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  padding: 20px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: #777;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 12px;
+}
+
+.admin-tabs button {
+  padding: 8px 16px;
+  border: none;
+  background: #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.admin-tabs button.active {
+  background: #007bff;
+  color: white;
+}

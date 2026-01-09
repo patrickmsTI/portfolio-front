@@ -1,0 +1,92 @@
+:host {
+  display: block;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* cada linha terá 50% da altura da viewport */
+  grid-auto-rows: 30vh;
+  gap: 0;
+  width: 100%;
+}
+
+.gallery-grid figure {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s ease;
+  display: block;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Lightbox permanece igual */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.video-section {
+  width: 100%;
+  margin: 0;      /* remove qualquer margem */
+  padding: 0;     /* remove qualquer padding */
+}
+
+.video-wrapper {
+  width: 100%;
+  height: 60vh;   /* altura do vídeo (pode ajustar) */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 50vh;
+  }
+}
+
+@media (max-width: 800px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 50vh;
+  }
+}
+

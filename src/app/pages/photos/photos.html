@@ -1,0 +1,13 @@
+<div class="gallery-grid">
+  <figure *ngFor="let photo of photos" (click)="open(photo.mediumUrl)">
+    <img [src]="photo.thumbUrl" loading="lazy">
+  </figure>
+</div>
+
+<div class="load-status" *ngIf="loading">Carregando...</div>
+<div class="load-status" *ngIf="error">{{ error }}</div>
+<div #sentinel></div>
+
+<div class="lightbox" *ngIf="selected" (click)="close()">
+  <img [src]="selected">
+</div>

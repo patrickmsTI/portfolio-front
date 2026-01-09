@@ -1,0 +1,15 @@
+<div class="dialog-overlay">
+  <div class="dialog-box">
+
+    <p>{{ message }}</p>
+
+    <div class="buttons">
+      <button (click)="cancel()" [disabled]="loading">Cancelar</button>
+      <button (click)="confirm()" [disabled]="loading">
+        <span *ngIf="!loading">Confirmar</span>
+        <span *ngIf="loading">Salvando...</span>
+      </button>
+    </div>
+
+  </div>
+</div>
