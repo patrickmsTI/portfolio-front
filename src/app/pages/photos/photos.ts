@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { Photo, PhotosService } from '../../services/photos.service';
 
@@ -9,9 +9,10 @@ import { Photo, PhotosService } from '../../services/photos.service';
   templateUrl: './photos.html',
   styleUrls: ['./photos.scss']
 })
-export class PhotosComponent implements AfterViewInit, OnDestroy {
+export class PhotosComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private photosService = inject(PhotosService);
+  private cdr = inject(ChangeDetectorRef);
 
   photos: Photo[] = [];
   nextToken: string | null = null;
@@ -24,9 +25,11 @@ export class PhotosComponent implements AfterViewInit, OnDestroy {
 
   selected: string | null = null;
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.loadMore();
+  }
 
+  ngAfterViewInit() {
     if (this.sentinel) {
       this.observer = new IntersectionObserver(
         entries => {
@@ -59,6 +62,7 @@ export class PhotosComponent implements AfterViewInit, OnDestroy {
 
     this.loading = true;
     this.error = null;
+    this.cdr.markForCheck();
 
     this.photosService.getPage(24, this.nextToken).subscribe({
       next: (res) => {
@@ -66,10 +70,12 @@ export class PhotosComponent implements AfterViewInit, OnDestroy {
         this.nextToken = res.nextToken ?? null;
         this.done = !this.nextToken;
         this.loading = false;
+        this.cdr.markForCheck();
       },
       error: () => {
         this.loading = false;
         this.error = 'Erro ao carregar fotos.';
+        this.cdr.markForCheck();
       }
     });
   }

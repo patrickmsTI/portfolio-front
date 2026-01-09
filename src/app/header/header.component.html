@@ -25,4 +25,19 @@
       ☰
     </button>
   </div>
+
+  <nav class="nav mobile" [class.open]="menuOpen">
+    <a routerLink="/photos" (click)="closeMenu()">Photo</a>
+    <a routerLink="/video" (click)="closeMenu()">Video</a>
+    <a routerLink="/contact" (click)="closeMenu()">Contact</a>
+
+    <div class="social">
+      <a href="https://instagram.com/patrickms.gallery" target="_blank" rel="noopener noreferrer">
+        <img src="assets/instagram.png" class="instagram" alt="Instagram">
+      </a>
+      <a href="https://www.youtube.com/@patrickms.martins" target="_blank" rel="noopener noreferrer">
+        <img src="assets/youtube.png" class="youtube" alt="Youtube">
+      </a>
+    </div>
+  </nav>
 </header>

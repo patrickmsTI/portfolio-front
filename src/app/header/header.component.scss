@@ -66,6 +66,10 @@
   cursor: pointer;
 }
 
+.nav.mobile {
+  display: none;
+}
+
 @media (max-width: 820px) {
   .desktop {
     display: none;
